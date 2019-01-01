@@ -5,7 +5,7 @@ type Props = Partial<{
   my: number
   mb: number
   mt: number
-  width: number
+  w: number
   onClick(): void
 }>
 
@@ -14,7 +14,7 @@ const Container = styled.div<Props>`
     props.my ? `${props.my}em` : props.mt ? `${props.mt}em` : 0};
   margin-bottom: ${props =>
     props.my ? `${props.my}em` : props.mb ? `${props.mb}em` : 0};
-  width: ${props => (props.width ? `${props.width}px` : 'auto')};
+  width: ${props => (props.w ? `${props.w}px` : 'auto')};
   display: inline-block;
   background: white;
   color: #444;

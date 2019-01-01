@@ -12,8 +12,8 @@ type Props = {
   mb: number
   my: number
   mx: number
-  width: number
-  height: number
+  w: number
+  h: number
   onClick(): void
 }
 
@@ -25,8 +25,8 @@ const Button = styled.button<Partial<Props>>`
   border-radius: 2px;
   border: 1px solid ${colors.gray_300};
   cursor: pointer;
-  width: ${props => (props.width ? `${props.width}px` : 'auto')};
-  height: ${props => (props.height ? `${props.height}px` : 'auto')};
+  width: ${props => (props.w ? `${props.w}px` : 'auto')};
+  height: ${props => (props.h ? `${props.h}px` : 'auto')};
   margin-top: ${props =>
     props.my ? `${props.my}em` : props.mt ? `${props.mt}em` : 0};
   margin-bottom: ${props =>
@@ -35,6 +35,14 @@ const Button = styled.button<Partial<Props>>`
   &:hover {
     color: ${colors.white};
     border: 1px solid ${colors.gray_100};
+  }
+  &:focus {
+    outline-color: ${colors.primary};
+  }
+  &:disabled {
+    border: 1px solid ${colors.gray_500};
+    cursor: unset;
+    pointer-events: none;
   }
 `
 

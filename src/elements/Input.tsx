@@ -9,7 +9,7 @@ type Props = Partial<{
 
 const Input = styled.input<Props>`
   background: none;
-  color: ${colors.gray_100};
+  color: ${colors.primary};
   font-size: 18px;
   padding: 0.25em 0.5em;
   border: none;

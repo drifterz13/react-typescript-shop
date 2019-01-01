@@ -1,11 +1,6 @@
 import * as React from 'react'
-import {
-  GoogleLoginButton,
-  Button,
-  Flex,
-  Input,
-  ErrorMessage
-} from '../elements'
+import { Flex, Input, Button, ErrorMessage } from '../elements'
+import { RouteComponentProps, Link } from '@reach/router'
 import { Error } from '../types'
 import Loader from './Loader'
 
@@ -15,21 +10,23 @@ type State = {
 }
 
 type Props = {
-  user: any
+  createAccount(email: string, password: string): void
+  clearError(): void
   authStatus: string
-  signOut(): void
-  signInWithGoogle(): void
-  signInWithEmail(email: string, password: string): void
   error: Error
-}
+} & RouteComponentProps
 
-const initialState = {
+const inititalState = {
   email: '',
   password: ''
 }
 
-export default class Login extends React.PureComponent<Props, State> {
-  state = { ...initialState }
+export default class Signup extends React.PureComponent<Props, State> {
+  state = { ...inititalState }
+
+  componentWillUnmount() {
+    this.props.clearError()
+  }
 
   onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ email: e.target.value })
@@ -41,20 +38,15 @@ export default class Login extends React.PureComponent<Props, State> {
 
   onSubmit = () => {
     const { email, password } = this.state
-    this.props.signInWithEmail(email, password)
+    this.props.createAccount(email, password)
   }
 
   render() {
-    const { user, signOut, signInWithGoogle, error, authStatus } = this.props
+    const { createAccount, error, authStatus } = this.props
     const isError = error && error.message
-    if (user)
-      return (
-        <Button mb={2} onClick={signOut}>
-          Sign out
-        </Button>
-      )
     return (
       <Flex column>
+        <h1>Create your account</h1>
         {authStatus === 'pending' && <Loader />}
         {isError && <ErrorMessage>{error.message}</ErrorMessage>}
         <Input
@@ -62,26 +54,26 @@ export default class Login extends React.PureComponent<Props, State> {
           type='email'
           name='email'
           value={this.state.email}
-          placeholder='email'
           onChange={this.onChangeEmail}
+          placeholder='email'
         />
         <Input
           type='password'
           name='password'
           value={this.state.password}
-          placeholder='password'
           onChange={this.onChangePassword}
+          placeholder='password'
         />
         <Button
-          mt={2}
+          my={2}
           w={241}
           h={42}
-          onClick={this.onSubmit}
+          onClick={() => createAccount(this.state.email, this.state.password)}
           disabled={authStatus === 'pending'}
         >
-          Sign in with Email
+          Signup
         </Button>
-        <GoogleLoginButton my={1.3} w={241} onClick={signInWithGoogle} />
+        <Link to='/'>Back to Login</Link>
       </Flex>
     )
   }

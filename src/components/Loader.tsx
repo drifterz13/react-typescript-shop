@@ -4,6 +4,10 @@ import { Flex } from '../elements'
 
 import { colors } from '../styled/colors'
 
+type Props = {
+  size?: string
+}
+
 const dualRing = keyframes`
     0% {
     transform: rotate(0deg);
@@ -29,13 +33,13 @@ const Loader = styled.div`
     animation: ${dualRing} 1.2s linear infinite;
   }
 `
-const Container = styled(Flex)`
+const Container = styled(Flex)<Props>`
   position: relative;
-  height: 100vh;
+  height: ${props => (props.size === 'page' ? '100vh' : 'auto')};
 `
 
-export default () => (
-  <Container>
+export default (props: Props) => (
+  <Container {...props}>
     <Loader />
   </Container>
 )
