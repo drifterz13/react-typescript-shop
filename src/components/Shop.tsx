@@ -3,6 +3,7 @@ import { Link, RouteComponentProps } from '@reach/router'
 import { Flex, Input, Button } from '../elements'
 import ProductUtils from './ProductUtils'
 import Products from './Products'
+import Uploader from './Uploader'
 
 type Props = {} & RouteComponentProps
 
@@ -34,6 +35,7 @@ export default class Shop extends React.PureComponent<Props, State> {
         <ProductUtils>
           {({ addProduct, products }) => (
             <React.Fragment>
+              <Uploader />
               <Input
                 my={1.3}
                 type='text'

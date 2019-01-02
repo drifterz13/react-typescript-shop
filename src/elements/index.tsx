@@ -4,5 +4,14 @@ import Input from './Input'
 import Label from './Label'
 import GoogleLoginButton from './GoogleLoginButton'
 import ErrorMessage from './ErrorMessage'
+import PreviewImage from './PreviewImage'
 
-export { Button, Flex, Input, Label, GoogleLoginButton, ErrorMessage }
+export {
+  Button,
+  Flex,
+  Input,
+  Label,
+  GoogleLoginButton,
+  ErrorMessage,
+  PreviewImage
+}

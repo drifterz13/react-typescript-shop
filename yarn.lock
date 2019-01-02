@@ -6351,6 +6351,13 @@ react-dom@^16.7.0:
     prop-types "^15.6.2"
     scheduler "^0.12.0"
 
+react-firebase-file-uploader@^2.4.2:
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/react-firebase-file-uploader/-/react-firebase-file-uploader-2.4.2.tgz#6bce6144683c125b282fcca357bb29bf425a16c5"
+  integrity sha512-+oevsz/MH2LdS3tx9iImB4X1gehD3LWPv/KPxLVtd6jh4mwuEyC1/rTo7EWmr39NmoDTO2hI9pHPNOhE5K6iwQ==
+  dependencies:
+    uuid "^3.2.1"
+
 react-is@^16.6.0, react-is@^16.6.1, react-is@^16.7.0:
   version "16.7.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
@@ -7582,7 +7589,7 @@ util@^0.10.3:
   dependencies:
     inherits "2.0.3"
 
-uuid@^3.3.2:
+uuid@^3.2.1, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
