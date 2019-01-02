@@ -1,5 +1,4 @@
 // GOOGLE AUTH
-
 export type User = {
   displayName: string
   email: string
@@ -10,3 +9,9 @@ export type User = {
 }
 
 export type Error = { message: string; code: string }
+
+export type Product = {
+  name: string
+  price: string
+  id?: string
+}

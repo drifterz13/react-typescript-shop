@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link, RouteComponentProps } from '@reach/router'
 import { Flex } from '../elements'
-import Loader from './Loader'
 import Login from './Login'
 import { User, Error } from '../types'
 

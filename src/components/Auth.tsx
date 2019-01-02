@@ -2,6 +2,7 @@ import * as React from 'react'
 import firebase from '../firebaase'
 
 import { User, Error } from '../types'
+import { navigate } from '@reach/router'
 
 const provider = new firebase.auth.GoogleAuthProvider()
 const auth = firebase.auth
@@ -70,6 +71,9 @@ export default class Auth extends React.PureComponent<Props, State> {
   signInWithGoogle = () => {
     auth()
       .signInWithPopup(provider)
+      .then(() => {
+        navigate('/shop')
+      })
       .catch(err => {
         throw new ErrorEvent(err)
       })
@@ -81,6 +85,9 @@ export default class Auth extends React.PureComponent<Props, State> {
       () => {
         auth()
           .signInWithEmailAndPassword(email, password)
+          .then(() => {
+            navigate('/shop')
+          })
           .catch(error => {
             this.setState({ error, authStatus: 'verified' })
           })
